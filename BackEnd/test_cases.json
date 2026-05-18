@@ -1,0 +1,32 @@
+[
+    {
+        "type": "functional",
+        "input": "计算 25 + 37 等于多少？",
+        "expected": "62",
+        "category": "数学计算"
+    },
+    {
+        "type": "functional",
+        "input": "中国的首都是哪里？",
+        "expected": "北京",
+        "category": "地理知识"
+    },
+    {
+        "type": "functional",
+        "input": "一年有多少个月？",
+        "expected": "12个月",
+        "category": "常识问答"
+    },
+    {
+        "type": "functional",
+        "input": "Python中如何打印Hello World？",
+        "expected": "print('Hello World')",
+        "category": "代码生成"
+    },
+    {
+        "type": "functional",
+        "input": "什么是Python？",
+        "expected": "Python是一种高级编程语言",
+        "category": "知识问答"
+    }
+]

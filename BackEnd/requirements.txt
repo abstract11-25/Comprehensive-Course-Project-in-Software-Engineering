@@ -1,0 +1,37 @@
+# 核心Web框架
+fastapi>=0.109.0  # 升级以支持 pydantic 2.7.x
+uvicorn>=0.27.0  # 升级以兼容新版 FastAPI
+pydantic>=2.5.0,<3.0.0  # 兼容 FastAPI，同时满足 langchain 等库的要求
+
+# 智能体评估核心依赖（语义相似度计算）
+# 注意：torch 需要单独安装，使用以下命令：
+# pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu
+# 或者直接安装CPU版本：pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+sentence-transformers==2.2.2  # 固定版本，避免自动升级导致冲突
+numpy<2.0.0  # 限制NumPy版本，避免与torch 2.1.0不兼容
+nltk>=3.8  # sentence-transformers的DenoisingAutoEncoderDataset需要nltk
+
+# 处理HuggingFace相关依赖（关键冲突点）
+transformers==4.36.2  # 固定版本，兼容huggingface-hub 0.19.3
+huggingface-hub==0.19.3  # 与transformers 4.36.2严格兼容
+
+# 网络请求库（需与其他库兼容）
+requests==2.32.2  # 满足datasets等库的版本要求
+
+# 可选依赖（如果环境中安装了这些库，可能需要以下依赖）
+# datasets>=2.0.0  # 如果使用 evals 或 evaluate 库时需要
+
+# 用户认证相关依赖
+python-jose[cryptography]==3.3.0  # JWT token生成和验证
+passlib[bcrypt]==1.7.4  # 密码加密
+bcrypt==4.0.1  # 固定bcrypt版本，与passlib 1.7.4兼容
+python-multipart==0.0.6  # 表单数据处理
+sqlalchemy==2.0.23  # ORM数据库框架
+email-validator==2.1.0  # 邮箱验证（EmailStr需要）
+cryptography>=41.0.0  # API密钥加密（Fernet对称加密）
+
+# MySQL 驱动
+pymysql==1.1.0
+
+# 环境变量管理（可选，用于 .env 文件支持）
+python-dotenv==1.0.0
